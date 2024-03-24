@@ -1,15 +1,16 @@
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "./toggle-mode";
+import Link from "next/link";
 
 export function MainNav() {
   return (
     <nav
       className={cn(
-        "bg-white-mode-text dark:bg-dark-blue-dark flex justify-between py-[2rem] px-[3.5rem]"
+        "bg-white-mode-text dark:bg-dark-blue-dark flex justify-between py-[2rem] px-[2rem]"
       )}
     >
       <div>
-        <h1>Where in the world</h1>
+        <Link href="/">Where in the world</Link>
       </div>
       <div>
         <ModeToggle />

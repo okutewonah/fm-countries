@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { MainNav } from "@/components/main-nav";
 
-const inter = Inter({ subsets: ["latin"] });
+const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  weight: ["300", "600", "800"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-very-light-gray-light dark:bg-very-dark-blue-dark w-full">
+      <body
+        className={`${nunitoSans.className} bg-very-light-gray-light dark:bg-very-dark-blue-dark w-full`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -26,7 +31,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <MainNav />
-          <main className="px-[3.5rem] py-[2rem]">{children}</main>
+          <main className="px-[2rem] py-[2rem]">{children}</main>
         </ThemeProvider>
       </body>
     </html>
