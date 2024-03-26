@@ -2,11 +2,6 @@
 import * as React from "react";
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "./ui/card";
-import { CountryProps } from "./types/generics";
-
-// interface Props {
-//   country: CountryProps;
-// }
 
 const CountryCard = (props: any) => {
   return (
