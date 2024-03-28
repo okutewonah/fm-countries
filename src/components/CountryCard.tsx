@@ -5,12 +5,12 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 
 const CountryCard = (props: any) => {
   return (
-    <Card className="bg-white-mode-text dark:bg-dark-blue-dark h-[360px] w-[300px] rounded">
+    <Card className="bg-white-mode-text dark:bg-dark-blue-dark h-[360px] w-[300px] rounded transition ease-in-out duration-[2000ms] delay-[1500ms] hover:-translate-y-1 hover:scale-110 shadow-2xl">
       <CardHeader className="w-full h-[180px]">
         <Image
-          className="rounded-t h-full w-full"
-          src={props.country.flags.png}
-          alt=""
+          className="rounded h-full w-full"
+          src={props.country.flags.svg}
+          alt={props.country.flags.alt}
           height={0}
           width={0}
           sizes="100vw"
@@ -22,7 +22,7 @@ const CountryCard = (props: any) => {
         </h2>
         <p className="text-sm">
           <span className="font-semibold">Population: </span>
-          {props.country.population}
+          {new Intl.NumberFormat().format(props.country.population)}
         </p>
         <p className="text-sm">
           <span className="font-semibold">Region: </span>

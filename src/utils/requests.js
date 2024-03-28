@@ -17,4 +17,21 @@ async function fetchCountries() {
   }
 }
 
-export { fetchCountries };
+async function fetchCountry(cca3) {
+  try {
+    if (!apiDomain) {
+      return null;
+    }
+    const res = await fetch(`${apiDomain}/alpha?codes=${cca3}`);
+
+    if (!res) {
+      throw new Error("Failed to fetch data");
+    }
+    return res.json();
+  } catch (error) {
+    console.log(error);
+    return cca3;
+  }
+}
+
+export { fetchCountries, fetchCountry };
