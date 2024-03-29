@@ -1,6 +1,7 @@
 "use client";
 import CountryDetails from "@/components/CountryDetails";
 import { fetchCountry } from "@/utils/requests";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -31,18 +32,17 @@ export default function CountryPage() {
   return (
     <>
       <section>
-        <a
+        <Link
           href="/"
           className="py-2 px-8 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark"
         >
           Back
-        </a>
+        </Link>
       </section>
-      {country && (
-        <section className="mt-[5rem] text-very-dark-blue-light dark:text-white-mode-text flex justify-between">
-          <CountryDetails country={country[0]} />
-        </section>
-      )}
+
+      <section className="mt-[5rem] text-very-dark-blue-light dark:text-white-mode-text flex justify-between">
+        {country && <CountryDetails country={country[0]} />}
+      </section>
     </>
   );
 }

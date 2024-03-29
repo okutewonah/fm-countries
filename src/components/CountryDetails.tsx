@@ -7,9 +7,10 @@ interface Props {
 }
 
 const CountryDetails: NextPage<Props> = ({ country }) => {
+  let countryNativeNameKeys = Object.keys(country?.name?.nativeName);
   return (
     <>
-      <div className="h-[360px] w-[600px]">
+      <div className="h-[360px] w-[600px] shadow-2xl">
         <Image
           className="h-full w-full"
           src={country.flags.svg}
@@ -29,7 +30,13 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
           <div>
             <p className="text-sm">
               <span className="font-semibold">Native Name: </span>
-              {country.name.nativeName[0]}
+              {/* {
+                countryNativeNameKeys.map(item => {
+                    let nativeName = country.name.nativeName[item]
+                    return <span>{nativeName.}</span>
+                })
+              } */}
+              {country.name.nativeName[countryNativeNameKeys[0]].common}
             </p>
             <p className="text-sm">
               <span className="font-semibold">Population: </span>
@@ -56,12 +63,14 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
             <p className="text-sm">
               <span className="font-semibold">Currencies: </span>
               {Object.keys(country.currencies).map(
-                (currency: any) => currency.name
+                (currency: any) => country.currencies[currency].name
               )}
             </p>
             <p className="text-sm">
               <span className="font-semibold">Languages: </span>
-              {Object.keys(country.languages).map((lang: any) => lang)}
+              {Object.keys(country.languages).map(
+                (lang: any) => country.languages[lang]
+              )}
             </p>
           </div>
         </div>
