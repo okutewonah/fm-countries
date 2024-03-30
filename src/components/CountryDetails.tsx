@@ -1,6 +1,7 @@
 "use client";
 import { NextPage } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   country: any;
@@ -29,14 +30,15 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
         <div className="flex justify-between">
           <div>
             <p className="text-sm">
-              <span className="font-semibold">Native Name: </span>
-              {/* {
-                countryNativeNameKeys.map(item => {
-                    let nativeName = country.name.nativeName[item]
-                    return <span>{nativeName.}</span>
-                })
-              } */}
-              {country.name.nativeName[countryNativeNameKeys[0]].common}
+              <span className="font-semibold">Native Names: </span>
+              {countryNativeNameKeys
+                .map(
+                  (item) =>
+                    // let nativeName = country.name.nativeName[item]
+                    country.name.nativeName[item].common
+                )
+                .join(", ")}
+              {/* {country.name.nativeName[countryNativeNameKeys[1]].common} */}
             </p>
             <p className="text-sm">
               <span className="font-semibold">Population: </span>
@@ -62,45 +64,35 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
             </p>
             <p className="text-sm">
               <span className="font-semibold">Currencies: </span>
-              {Object.keys(country.currencies).map(
-                (currency: any) => country.currencies[currency].name
-              )}
+              {Object.keys(country.currencies)
+                .map((currency: any) => country.currencies[currency].name)
+                .join(", ")}
             </p>
             <p className="text-sm">
               <span className="font-semibold">Languages: </span>
-              {Object.keys(country.languages).map(
-                (lang: any) => country.languages[lang]
-              )}
+              {Object.keys(country.languages)
+                .map((lang: any) => country.languages[lang])
+                .join(", ")}
             </p>
           </div>
         </div>
-        <div className="flex">
-          <p className="text-sm my-auto">Border Countries:</p>
-          <a
-            href="#"
-            className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark"
-          >
-            France
-          </a>
-          <a
-            href="#"
-            className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark"
-          >
-            Germany
-          </a>
-          <a
-            href="#"
-            className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark"
-          >
-            Netherlands
-          </a>
-          <a
-            href="#"
-            className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark"
-          >
-            Luxembourg
-          </a>
-        </div>
+        {!country.borders ? (
+          <p>Definitely an Island</p>
+        ) : (
+          <div className="flex">
+            <p className="text-sm my-auto">Border Countries:</p>
+            <div className="grid grid-cols-5 gap-2">
+              {country.borders.map((border: any) => (
+                <Link
+                  className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark"
+                  href={`/${border}`}
+                >
+                  {border}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
