@@ -67,9 +67,13 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
         {/* {country && (
           <Borders key={Math.random()} borderCode={country.borders} />
         )} */}
-        {country.borders.map((border: any) => (
-          <Borders borderCode={border} />
-        ))}
+        {!country.borders ? (
+          <p className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark">
+            Definitely an Island
+          </p>
+        ) : (
+          country.borders.map((border: any) => <Borders borderCode={border} />)
+        )}
       </div>
     </>
   );
