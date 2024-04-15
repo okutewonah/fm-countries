@@ -14,7 +14,10 @@ import { Search } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
-  const countries = await fetchCountries();
+  const countriesList = await fetchCountries();
+
+  const countries = countriesList.sort(() => Math.random() - Math.random());
+
   return (
     <>
       <section className="flex flex-col md:flex-row justify-between">
