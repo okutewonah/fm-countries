@@ -62,17 +62,19 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
           </p>
         </div>
       </div>
-      <div className="flex">
-        <p className="text-sm my-auto">Border Countries:</p>
-        {/* {country && (
-          <Borders key={Math.random()} borderCode={country.borders} />
-        )} */}
+      <div className="flex mt-3">
+        <p className="text-sm">Border Countries:</p>
+
         {!country.borders ? (
           <p className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark">
             Definitely an Island
           </p>
         ) : (
-          country.borders.map((border: any) => <Borders borderCode={border} />)
+          <div className="flex flex-wrap gap-3">
+            {country.borders.map((border: any) => (
+              <Borders borderCode={border} />
+            ))}
+          </div>
         )}
       </div>
     </>
