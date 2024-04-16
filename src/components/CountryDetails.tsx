@@ -63,7 +63,7 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
         </div>
       </div>
       <div className="flex mt-3">
-        <p className="text-sm">Border Countries:</p>
+        <p className="text-sm my-auto">Border Countries:</p>
 
         {!country.borders ? (
           <p className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark">
