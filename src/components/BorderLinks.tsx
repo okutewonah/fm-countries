@@ -1,6 +1,7 @@
 "use client";
 import { NextPage } from "next";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 interface Props {
   border: any;
@@ -8,12 +9,12 @@ interface Props {
 
 const BorderLinks: NextPage<Props> = ({ border }) => {
   return (
-    <Link
-      className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark"
-      href={border.cca3}
+    <Button
+      className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light hover:text-white dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark"
+      asChild
     >
-      {border.name.common}
-    </Link>
+      <Link href={border.cca3}>{border.name.common}</Link>
+    </Button>
   );
 };
 

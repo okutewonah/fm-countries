@@ -36,21 +36,4 @@ async function fetchCountry(cca3) {
   }
 }
 
-// Fetch countries in region
-async function fetchRegion(region) {
-  try {
-    if (!apiDomain) {
-      return null;
-    }
-    const res = await fetch(`${apiDomain}/region/${region}`);
-
-    if (!res) {
-      throw new Error("Failed to fetch data");
-    }
-    return res.json();
-  } catch (error) {
-    return region;
-  }
-}
-
 export { fetchCountries, fetchCountry };

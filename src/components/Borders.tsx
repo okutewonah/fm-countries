@@ -26,7 +26,9 @@ const Borders: NextPage<Props> = ({ borderCode }) => {
       fetchCountryData();
     }
   }, [borderCode, border]);
-  return <>{border && <BorderLinks border={border[0]} />}</>;
+  return (
+    <>{border && <BorderLinks key={Math.random()} border={border[0]} />}</>
+  );
 };
 
 export default Borders;
