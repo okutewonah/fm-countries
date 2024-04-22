@@ -2,6 +2,7 @@
 import Borders from "@/components/Borders";
 import CountryDetails from "@/components/CountryDetails";
 import CountryFlag from "@/components/CountryFlag";
+import Loading from "@/components/Loading";
 import { fetchCountry } from "@/utils/requests";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -9,6 +10,7 @@ import { useEffect, useState } from "react";
 
 export default function CountryPage() {
   const { cca3 } = useParams();
+  const [loading, setLoading] = useState(true);
   //   const country = await fetchCountry(cca3);
 
   //   console.log(country.name.common);
@@ -23,6 +25,8 @@ export default function CountryPage() {
         setCountry(countryData);
       } catch (error) {
         console.log("Error fetching country", error);
+      } finally {
+        setLoading(false);
       }
     };
     if (country === null) {
@@ -31,7 +35,9 @@ export default function CountryPage() {
     // console.log(country);
   }, [cca3, country]);
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <>
       <section>
         <Link
