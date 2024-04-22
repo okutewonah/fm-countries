@@ -35,7 +35,7 @@ export default function Countries(props: { countries: Array<any> }) {
   return (
     <>
       <NavContent onFiltersChange={handleFilterChange} />
-      <section className="mt-[2rem] gap-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-very-dark-blue-light dark:text-white-mode-text">
+      <section className="mt-[2rem] gap-8 md:gap-8 lg:gap-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-very-dark-blue-light dark:text-white-mode-text">
         {filteredCountries.map((country: any) => (
           <Link href={`/${country.cca3}`} key={Math.random()}>
             <CountryCard key={Math.random()} country={country} />

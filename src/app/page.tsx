@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <>
-      <Countries countries={countries} />
+      <Countries key={Math.random()} countries={countries} />
       {/* <NavContent countriesList={countriesList} />
       <section className="mt-[2rem] gap-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-very-dark-blue-light dark:text-white-mode-text">
         {countries.map((country: any) => (

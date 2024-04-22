@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 
 const CountryCard = (props: any) => {
   return (
-    <Card className="bg-white-mode-text dark:bg-dark-blue-dark h-[360px] w-[300px] rounded transition ease-in-out duration-[2000ms] delay-[1500ms] hover:-translate-y-1 hover:scale-110 shadow-2xl">
+    <Card className="bg-white-mode-text dark:bg-dark-blue-dark w-[85vw] h-[360px] md:w-[300px] rounded transition ease-in-out duration-[2000ms] delay-[1500ms] hover:-translate-y-1 hover:scale-110 shadow-2xl">
       <CardHeader className="w-full h-[180px]">
         <Image
           className="rounded h-full w-full"

@@ -42,17 +42,12 @@ export default function CountryPage() {
         </Link>
       </section>
       {country && (
-        <section className="mt-[5rem] text-very-dark-blue-light dark:text-white-mode-text grid grid-cols-2 gap-3">
-          <div className="h-[360px] w-[600px] shadow-2xl">
-            <CountryFlag country={country[0]} />
+        <section className="mt-[5rem] text-very-dark-blue-light dark:text-white-mode-text grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="h-[360px] w-[85vw] md:w-[600px] shadow-2xl">
+            <CountryFlag key={Math.random()} country={country[0]} />
           </div>
           <div className="flex flex-col justify-between py-[2.5rem]">
-            <CountryDetails country={country[0]} />
-            {/* {country && (
-              <div className="flex">
-                <Borders borderCodes={country[0]} />
-              </div>
-            )} */}
+            <CountryDetails key={Math.random()} country={country[0]} />
           </div>
         </section>
       )}

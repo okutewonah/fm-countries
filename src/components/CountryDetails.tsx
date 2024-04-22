@@ -15,7 +15,7 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
           {country.name.common}
         </h1>
       </div>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <p className="text-sm">
             <span className="font-semibold">Native Names: </span>
@@ -62,7 +62,7 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
           </p>
         </div>
       </div>
-      <div className="flex mt-3">
+      <div className="flex mt-12 md:mt-3">
         <p className="text-sm my-auto">Border Countries:</p>
 
         {!country.borders ? (
@@ -72,7 +72,7 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
         ) : (
           <div className="flex flex-wrap gap-3">
             {country.borders.map((border: any) => (
-              <Borders borderCode={border} />
+              <Borders key={Math.random()} borderCode={border} />
             ))}
           </div>
         )}
