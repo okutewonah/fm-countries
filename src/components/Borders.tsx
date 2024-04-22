@@ -11,6 +11,7 @@ interface Props {
 
 const Borders: NextPage<Props> = ({ borderCode }) => {
   const [border, setBorder] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCountryData = async () => {
@@ -20,13 +21,19 @@ const Borders: NextPage<Props> = ({ borderCode }) => {
         setBorder(countryData);
       } catch (error) {
         console.log("Error fetching country", error);
+      } finally {
+        setLoading(false);
       }
     };
     if (border === null) {
       fetchCountryData();
     }
-  }, [border]);
-  return (
+  }, []);
+  return loading ? (
+    <p className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark">
+      Loading
+    </p>
+  ) : (
     <>{border && <BorderLinks key={Math.random()} border={border[0]} />}</>
   );
 };
