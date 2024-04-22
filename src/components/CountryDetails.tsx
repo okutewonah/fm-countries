@@ -72,7 +72,7 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
         ) : (
           <div className="flex flex-wrap gap-3">
             {country.borders.map((border: any) => (
-              <Borders borderCode={border} />
+              <Borders key={Math.random()} borderCode={border} />
             ))}
           </div>
         )}
