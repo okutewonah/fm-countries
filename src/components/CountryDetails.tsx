@@ -11,7 +11,7 @@ const CountryDetails: NextPage<Props> = ({ country }) => {
   return (
     <>
       <div>
-        <h1 className="text-very-dark-blue-light dark:text-white-mode-text">
+        <h1 className="text-very-dark-blue-light dark:text-white-mode-text text-[1.75rem] font-bold">
           {country.name.common}
         </h1>
       </div>

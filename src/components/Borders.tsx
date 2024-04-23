@@ -29,11 +29,7 @@ const Borders: NextPage<Props> = ({ borderCode }) => {
       fetchCountryData();
     }
   }, []);
-  return loading ? (
-    <p className="mx-2 text-sm py-2 px-3 rounded text-very-dark-blue-light dark:text-white-mode-text bg-white-mode-text dark:bg-dark-blue-dark">
-      Loading
-    </p>
-  ) : (
+  return (
     <>{border && <BorderLinks key={Math.random()} border={border[0]} />}</>
   );
 };
